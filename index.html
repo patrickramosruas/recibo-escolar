@@ -231,10 +231,6 @@
         </div>
         
         <div class="form-section" id="formSection">
-            <div class="form-group">
-                <label for="controleNum">Controle Nº:</label>
-                <input type="text" id="controleNum" placeholder="Ex: 001">
-            </div>
             
             <div class="form-group">
                 <label for="clientName">Nome do Cliente:</label>
@@ -348,7 +344,6 @@
         
         function generateReceipt() {
             // Get form values
-            const controleNum = document.getElementById('controleNum').value || '___________';
             const clientName = document.getElementById('clientName').value || '_________________________';
             const amount = document.getElementById('amount').value || '______________';
             const students = document.getElementById('students').value || '_________________________';
@@ -368,7 +363,6 @@
             }
             
             // Fill receipt
-            document.getElementById('receiptControle').textContent = controleNum;
             document.getElementById('receiptClient').textContent = clientName;
             document.getElementById('receiptAmount').textContent = amount;
             document.getElementById('receiptStudents').textContent = students.replace(/\n/g, ', ');
@@ -376,7 +370,6 @@
             document.getElementById('receiptDate').textContent = formattedDate;
             
             // Fill control section
-            document.getElementById('controlNum').textContent = controleNum;
             document.getElementById('controlClient').textContent = clientName;
             document.getElementById('controlAmount').textContent = amount;
             document.getElementById('controlStudents').textContent = students.replace(/\n/g, ', ');
@@ -410,7 +403,6 @@
         
         function clearForm() {
             // Clear all form fields
-            document.getElementById('controleNum').value = '';
             document.getElementById('clientName').value = '';
             document.getElementById('amount').value = '';
             document.getElementById('students').value = '';
@@ -422,8 +414,6 @@
             // Hide receipt
             document.getElementById('receipt').classList.add('hidden');
             
-            // Focus on first field
-            document.getElementById('controleNum').focus();
         }
         
         // Auto-format currency input
